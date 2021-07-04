@@ -1,0 +1,402 @@
+openapi: 3.1.0
+info:
+  title: windspeed
+  version: '1.0'
+  description: ''
+servers:
+  - url: 'http://develop.torimonitor.sinnsa233048.net:21072'
+  - url: 'http://192.168.11.202:9200'
+    description: ''
+paths:
+  /windspeed/_doc:
+    post:
+      summary: Create New User
+      operationId: ''
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    minLength: 1
+                  _type:
+                    type: string
+                    minLength: 1
+                  _id:
+                    type: string
+                    minLength: 1
+                  _version:
+                    type: number
+                  result:
+                    type: string
+                    minLength: 1
+                  _shards:
+                    type: object
+                    properties:
+                      total:
+                        type: number
+                      successful:
+                        type: number
+                      failed:
+                        type: number
+                    required:
+                      - total
+                      - successful
+                      - failed
+                  _seq_no:
+                    type: number
+                  _primary_term:
+                    type: number
+                required:
+                  - _index
+                  - _type
+                  - _id
+                  - _version
+                  - result
+                  - _shards
+                  - _seq_no
+                  - _primary_term
+                x-examples:
+                  example-1:
+                    _index: windspeed
+                    _type: _doc
+                    _id: uTCFcXoBod0i76Gh2bvt
+                    _version: 1
+                    result: created
+                    _shards:
+                      total: 2
+                      successful: 1
+                      failed: 0
+                    _seq_no: 11
+                    _primary_term: 1
+              examples:
+                example-1:
+                  value:
+                    _index: windspeed
+                    _type: _doc
+                    _id: uTCFcXoBod0i76Gh2bvt
+                    _version: 1
+                    result: created
+                    _shards:
+                      total: 2
+                      successful: 1
+                      failed: 0
+                    _seq_no: 11
+                    _primary_term: 1
+          headers: {}
+      description: send metrics for windspeed
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          description: application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                location:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lon:
+                      type: number
+                  required:
+                    - lat
+                    - lon
+                heading:
+                  type: number
+                windspeed:
+                  type: number
+                windspeedmax:
+                  type: number
+                timestamp:
+                  type: string
+                  minLength: 1
+                windspeedmin:
+                  type: number
+                deviceserial:
+                  type: string
+                  minLength: 1
+              required:
+                - location
+                - heading
+                - windspeed
+                - windspeedmax
+                - timestamp
+                - windspeedmin
+                - deviceserial
+              x-examples:
+                example-1:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  windspeed: 5.822642836649761
+                  windspeedmax: 0.8226428366497607
+                  timestamp: '2021-07-02T00:15:30+09:00'
+                  windspeedmin: 1.8226428366497607
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
+            examples:
+              example-1:
+                value:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  windspeed: 12.822642836649761
+                  windspeedmax: 0.8226428366497607
+                  timestamp: '2021-07-02T00:09:10+09:00'
+                  windspeedmin: 1.8226428366497607
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              description: ''
+              type: object
+              properties:
+                location:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lon:
+                      type: number
+                  required:
+                    - lat
+                    - lon
+                heading:
+                  type: number
+                windspeed:
+                  type: number
+                windspeedmax:
+                  type: number
+                timestamp:
+                  type: string
+                  minLength: 1
+                windspeedmin:
+                  type: number
+                deviceserial:
+                  type: string
+                  minLength: 1
+              required:
+                - location
+                - heading
+                - windspeed
+                - windspeedmax
+                - timestamp
+                - windspeedmin
+                - deviceserial
+              x-examples:
+                example-1:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  windspeed: 5.822642836649761
+                  windspeedmax: 0.8226428366497607
+                  timestamp: '2021-07-02T00:15:30+09:00'
+                  windspeedmin: 1.8226428366497607
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
+          text/html:
+            schema:
+              type: object
+              properties: {}
+          text/plain:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      security:
+        - API Key - 1: []
+    parameters: []
+  /location/_doc:
+    post:
+      summary: ''
+      operationId: post-location-_doc
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  _index:
+                    type: string
+                    minLength: 1
+                  _type:
+                    type: string
+                    minLength: 1
+                  _id:
+                    type: string
+                    minLength: 1
+                  _version:
+                    type: number
+                  result:
+                    type: string
+                    minLength: 1
+                  _shards:
+                    type: object
+                    properties:
+                      total:
+                        type: number
+                      successful:
+                        type: number
+                      failed:
+                        type: number
+                    required:
+                      - total
+                      - successful
+                      - failed
+                  _seq_no:
+                    type: number
+                  _primary_term:
+                    type: number
+                required:
+                  - _index
+                  - _type
+                  - _id
+                  - _version
+                  - result
+                  - _shards
+                  - _seq_no
+                  - _primary_term
+                x-examples:
+                  example-1:
+                    _index: location
+                    _type: _doc
+                    _id: uDCDcXoBod0i76GhDLtS
+                    _version: 1
+                    result: created
+                    _shards:
+                      total: 2
+                      successful: 1
+                      failed: 0
+                    _seq_no: 2
+                    _primary_term: 1
+              examples:
+                example-1:
+                  value:
+                    _index: location
+                    _type: _doc
+                    _id: uDCDcXoBod0i76GhDLtS
+                    _version: 1
+                    result: created
+                    _shards:
+                      total: 2
+                      successful: 1
+                      failed: 0
+                    _seq_no: 2
+                    _primary_term: 1
+      description: send metrics for location
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                location:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lon:
+                      type: number
+                  required:
+                    - lat
+                    - lon
+                heading:
+                  type: number
+                timestamp:
+                  type: string
+                  minLength: 1
+                deviceserial:
+                  type: string
+                  minLength: 1
+              required:
+                - location
+                - heading
+                - timestamp
+                - deviceserial
+              x-examples:
+                example-1:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  timestamp: '2021-07-02T00:09:10+09:00'
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
+            examples:
+              example-1:
+                value:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  timestamp: '2021-07-02T00:09:10+09:00'
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
+      security:
+        - API Key - 1: []
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      description: ''
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+  securitySchemes:
+    API Key - 1:
+      type: http
+      scheme: basic
+security:
+  - API Key - 1: []
