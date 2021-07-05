@@ -309,17 +309,25 @@ paths:
             schema:
               description: ''
               type: object
+              x-examples:
+                example-1:
+                  location:
+                    lat: 35.9865
+                    lon: 139.52111
+                  heading: 90
+                  timestamp: '2021-07-02T00:09:10+09:00'
+                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
               properties:
                 location:
                   type: object
+                  required:
+                    - lat
+                    - lon
                   properties:
                     lat:
                       type: number
                     lon:
                       type: number
-                  required:
-                    - lat
-                    - lon
                 heading:
                   type: number
                 timestamp:
@@ -330,17 +338,8 @@ paths:
                   minLength: 1
               required:
                 - location
-                - heading
                 - timestamp
                 - deviceserial
-              x-examples:
-                example-1:
-                  location:
-                    lat: 35.9865
-                    lon: 139.52111
-                  heading: 90
-                  timestamp: '2021-07-02T00:09:10+09:00'
-                  deviceserial: 84c9b39d-efb89-41bf-bd7b-a5ebbad04e6b
             examples:
               example-1:
                 value:
